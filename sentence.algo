@@ -1,0 +1,29 @@
+ALGORITHM sentence
+VAR
+    str := STRING;
+    vcount :=  INTEGER = 0; 
+    i , words, nbcaracter:= INTEGER; 
+BEGIN
+     READ(str)
+     //Converting entire string to lower case to reduce the comparisons  
+     str = str.lower(); 
+     FOR  i FROM 1 TO length(str)  DO  
+     // checks the number of caracters
+       IF str[i] <> '' THEN
+        nbcaracter ++;
+     END_IF
+     //Checks the number of words
+      IF str[i] == '' and str[i+1].isalpha() THEN
+      words ++;
+      END_IF
+
+     //Checks whether a character is a vowel  
+     IF str[i] in ('a','e','i','o','u') THEN  
+        vcount = vcount + 1; 
+     END_IF 
+     WRITE(words)
+     WRITE(nbcaracter)
+     WRITE("Total number of vowel is" );  
+     WRITE(vcount);  
+ 
+END
